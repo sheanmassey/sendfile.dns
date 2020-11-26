@@ -1,7 +1,7 @@
 import os
 import datetime
 
-from dnslib.server import DNSServer, DNSLogger
+from dnslib.server import DNSServer
 from dnslib.dns import RR
 from dnslib import QTYPE
 
@@ -32,7 +32,6 @@ class TransferResolver:
 
 if __name__ == "__main__":
     resolver = TransferResolver()
-    logger = DNSLogger(prefix=False)
     logger = None
     server = DNSServer(resolver, logger=logger, address="0.0.0.0", port=PORT)
     print("starting DNS server!")
