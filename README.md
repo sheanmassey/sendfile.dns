@@ -5,15 +5,15 @@ Data exfiltration out of a tightly monitored and firewalled network can be *tric
 **UDP/53 has entered the chat**
 
 DNS queries are often overlooked by network administrators when filtering outgoing
-network traffic. Here you'll find a simple python DNS server impl to create
-a DNS client/server pair to send files.
+network traffic. Here you'll find a simple python DNS client/server impl for sending
+files.
 
 # How it works
 
-The client will cut the file to be sent into chunks and then encode each of the
-chunks (in base58 for DNS Label friendliness). Each of these chunks becomes is
-sent to the custom DNS server as domain name lookups. The server just takes the
-chunks and reassembles the client's file.
+The client will cut the file to be sent into chunks and then encode each of those
+chunks (in base58 for DNS Label friendliness). Each of these encoded chunks is
+sent to the custom DNS server as domain name lookup. The server just takes the
+chunks, decoded them, and reassembles them into the original file.
 
 # How to build and execute with docker
 
